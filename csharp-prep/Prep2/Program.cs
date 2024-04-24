@@ -32,7 +32,11 @@ class Program
 
         if (grade >= 70)
         {
-            Console.WriteLine("You Passed!");
+            Console.WriteLine("Congratulations! You Passed!");
+        }
+        else
+        {
+            Console.WriteLine("You didn't pass. Better luck next time!");
         }
 
         string gradeSign = "";
