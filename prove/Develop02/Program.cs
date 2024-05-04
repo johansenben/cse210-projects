@@ -1,3 +1,9 @@
+/*
+Exceeds requirements
+I made it save the journal to a csv file, and remove the commas/quotation marks when loading it.
+I added an option to append or replace whn saving/loading if there are any existing entries.
+*/
+
 using System;
 
 class Program
