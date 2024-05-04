@@ -1,0 +1,36 @@
+
+Program.cs
+    class Program
+        Main()
+        ActionsMenu(journal)
+
+Journal.cs
+    class Journal
+        _entries
+        _promptGenerator
+
+        NewEntry()
+        AddEntry(entry, date, prompt)  
+        AddEntry(csvLine)
+        DoesJournalExist(path)
+        Save(path)
+        Load(path)
+        Display()
+
+JournalEntry.cs
+    class JournalEntry
+        _entryTest
+        _date
+        _prompt
+
+        Constructor(entry, date, prompt)
+        Constructor(csvLine)
+        GetAsCSV()
+        Display()
+
+PromptGenerator.cs
+    class PromptGenerator
+        _prompts
+
+        GetPrompt()
+
