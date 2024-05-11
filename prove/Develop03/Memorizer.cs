@@ -1,6 +1,6 @@
 class Memorizer 
 {
-    private List<(ScriptureReference, string[])> _scriptures = new List<(ScriptureReference, string[])>();
+    private List<Scripture> _scriptures = new List<Scripture>();
 
     public Memorizer()
     {   
@@ -35,16 +35,16 @@ class Memorizer
     //2+ verses
     private void AddScripture(ScriptureReference reference, string[] verses)
     {
-        _scriptures.Add((reference, verses));
+        _scriptures.Add(new Scripture(reference, verses));
     }
     //1 verse
     private void AddScripture(ScriptureReference reference, string verse)
     {
-        _scriptures.Add((reference, [verse]));
+        _scriptures.Add(new Scripture(reference, verse));
     }
 
     //chooses a random scripture
-    private (ScriptureReference, string[]) GetRandomScripture() 
+    private Scripture GetRandomScripture() 
     {
         Random random = new Random();
         int index = random.Next(_scriptures.Count);
@@ -57,10 +57,9 @@ class Memorizer
         Console.WriteLine("What scripture Do you want to memorize?");
         for(int i = 0; i < _scriptures.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {_scriptures[i].Item1.GetReference()}");
+            Console.WriteLine($"{i + 1}. {_scriptures[i].GetReference().GetReferenceText()}");
         }
-        int index = -1;
-        bool isInt = int.TryParse(Console.ReadLine(), out index);
+        bool isInt = int.TryParse(Console.ReadLine(), out int index);
         if (isInt)
         {
             return index;
@@ -70,7 +69,7 @@ class Memorizer
     }
 
     //the user inputs all of the information for the scriptures
-    private (ScriptureReference, string[]) InputScripture()
+    private Scripture InputScripture()
     {
         Console.WriteLine("What is the book?");
         string book = Console.ReadLine();
@@ -84,7 +83,7 @@ class Memorizer
         List<string> verses = new List<string>();
         while (true)
         {
-            Console.WriteLine($"Type the verse? Typing '{Scripture.IGNORE_WORD_WITH_PREFIX}' immediately before any word will prevent it from bing replaced by a blank (example: %word won't be replaced by a blank).");
+            Console.WriteLine($"Type the verse? Typing '{Scripture.GetIgnoreWordPrefix()}' immediately before any word will prevent it from bing replaced by a blank (example: '{Scripture.GetIgnoreWordPrefix()}word' will always be displayed as 'word').");
             string verse = Console.ReadLine();
 
             verses.Add(verse);
@@ -95,9 +94,9 @@ class Memorizer
             break;
         }
 
-        return (new ScriptureReference(book, chapter, versesRef), verses.ToArray());
+        return new Scripture(new ScriptureReference(book, chapter, versesRef), verses.ToArray());
     }
-    private (ScriptureReference, string[]) GetScripture()
+    private Scripture GetScripture()
     {
         Console.WriteLine("What do you want to do?");
         Console.WriteLine("1. Pick A Scripture      2. Input A scripture        3. Get A Random Scripture (Default)");
@@ -118,8 +117,7 @@ class Memorizer
     }
     public void ManageIO()
     {
-        var (reference, verses) = GetScripture();
-        Scripture scripture = new Scripture(reference, verses);
+        Scripture scripture = GetScripture();
 
         scripture.DisplayScripture();
 

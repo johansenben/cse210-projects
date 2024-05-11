@@ -43,7 +43,7 @@ class ScriptureReference
         _verses = versesString;
     }
 
-    public string GetReference()
+    public string GetReferenceText()
     {
         return $"{_book} {_chapter}: {_verses}";
     }

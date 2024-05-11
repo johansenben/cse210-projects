@@ -1,6 +1,10 @@
 class Scripture
 {
-    public static readonly string IGNORE_WORD_WITH_PREFIX = "%";
+    private static readonly string IGNORE_WORD_WITH_PREFIX = "%";
+    public static string GetIgnoreWordPrefix()
+    {
+        return IGNORE_WORD_WITH_PREFIX;
+    }
 
     private ScriptureReference _reference;
     private List<List<ScriptureWord>> _words = new List<List<ScriptureWord>>();
@@ -44,6 +48,11 @@ class Scripture
 
         _totalVisibleWords = _totalWords;
     }
+
+    public ScriptureReference GetReference()
+    {
+        return _reference;
+    }
     
     public void DisplayScripture(bool clearConsole = true, bool showBlanks = true)
     {
@@ -53,7 +62,7 @@ class Scripture
         else
             Console.WriteLine();
 
-        Console.WriteLine(_reference.GetReference());
+        Console.WriteLine(_reference.GetReferenceText());
         foreach (List<ScriptureWord> verse in _words)
         {
             foreach (ScriptureWord word in verse)
