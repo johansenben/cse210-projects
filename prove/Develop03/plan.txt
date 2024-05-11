@@ -1,0 +1,66 @@
+Program.cs
+    class Program
+        public static void main()
+    
+Memorizer.cs
+    class Memorizer
+        private int _totalHiddenWords
+        private List<(ScriptureReference, List<string>)> _scriptures
+
+        public Memorizer()
+
+        public List<string> GetRandomScripture()
+
+        void ManageIO //output questions, read user input
+
+Scripture.cs
+    class Scripture
+        static const string IGNORE_WORD_PREFIX = '$$' 
+            //if this is at the start of a word -> ignore it (don't replace it with a blank); used for verse numbers
+
+        private ScriptureReference _reference
+        private List<List<ScriptureWord>> _verses
+        private int _totalWords //exclude words that start with $$
+
+        public Scripture(List<string> verses)
+
+        public ScriptureReference GetReference()
+        public List<string> GetVerses()
+        public List<List<ScriptureWord>> GetWords() -> list, where each element is 1 word
+
+        public void DisplayOriginalVerses()
+        public void DisplayVerses()
+        public void HideWords(int count)
+
+ScriptureReference.cs
+    class ScriptureReference
+        private string _book
+        private int _chapter
+        private List<int> _verses
+
+        public ScriptureReference(string book, int chapter, List<int> verses)
+
+        public string GetBook()
+        public int GetChapter()
+        public List<int> GetVerses()
+
+        public string GetReference() -> <_book> <_chapter>:<_verses[0]>,<verses[1]>...
+
+ScriptureWord.cs
+    class ScriptureWord
+        private bool _isHidden
+        private bool _canBeHidden
+
+        private string _word
+
+        public ScriptureWord(string word, bool canBeHidden = true)
+
+        bool GetIsHidden()
+        void SetIsHidden()
+        void Hide()
+
+        bool GetCanBeHidden()
+
+        string GetWord()
+
+        string GetDisplayWord() //returns '___' if hidden
