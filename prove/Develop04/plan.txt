@@ -1,0 +1,43 @@
+Program.cs
+    class Program
+
+ActivityManager.cs
+    class ActivityManager
+
+Activity.cs
+    class Activity
+        private string _activityName
+        private string _activityDescription
+        
+        private string[] _pauseFrames
+        private int _currentPauseFrame = 0
+
+        public Activity(string[] pauseFrames)
+
+        public void Pause(String message, int seconds, int pauseFramesPerSecond = 1, bool showCountdown = true)
+        public void PrintStartMessage()
+            "Welocme to the ___ activity!"
+        public void PrintDescription()
+        public void PrintEndMessage()
+            "Thank you for doing the ___ activity"
+
+BreathingActivity.cs
+    class BreathingActivity
+        private int _iterations
+
+        public void Breathe()
+            -iterations is the number of time to breathe in and out
+            -breathTime is the amount of time to breathe in/out
+
+ReflectionActivity.cs
+    class ReflectionActivity
+        public string GetRandomPrompt()
+        public string GetRandomQuestion()
+
+ListingActivity.cs
+    class ListingActivity
+        private List<string> _inputItems
+
+        public string GetRandomPrompt()
+        public void AddInput()
+        public void InputItem()
