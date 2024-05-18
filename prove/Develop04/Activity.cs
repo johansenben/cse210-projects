@@ -9,7 +9,7 @@ abstract class Activity {
     }
 
 
-    public void Pause(string message, int seconds, int pauseFramesPerSecond = 1, bool showCountDown = true, string[] pauseFrames = null)
+    protected void Pause(string message, int seconds, int pauseFramesPerSecond = 1, bool showCountDown = true, string[] pauseFrames = null)
     {
         static void Backspace(int count)
         {
@@ -42,7 +42,7 @@ abstract class Activity {
         Console.CursorVisible = true;
     }
 
-    public int GetSecondsInput()
+    protected int GetSecondsInput()
     {
         int tries = 0;
         while (tries < 10)
@@ -55,15 +55,15 @@ abstract class Activity {
         return -1; //-1 means user failed to enter a valid number
     }
 
-    public void PrintStartMessage()
+    protected void PrintStartMessage()
     {
         Console.WriteLine($"Welcome to the {_name} activity!");
     }
-    public void PrintDecription()
+    protected void PrintDecription()
     {
         Console.WriteLine(_description);
     }
-    public void PrintEndMessage()
+    protected void PrintEndMessage()
     {
         Console.WriteLine($"Thanks for doing the {_name} activity!");
     }

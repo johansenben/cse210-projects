@@ -5,7 +5,7 @@ class ReflectionActivity : Activity
 
     }
 
-    public string GetRandomPrompt()
+    private string GetRandomPrompt()
     {
         string[] prompts = [
             "Think of a time when you stood up for someone else.",
@@ -18,7 +18,7 @@ class ReflectionActivity : Activity
         int index = rnd.Next(0, prompts.Length);
         return prompts[index];
     }
-    public string GetRandomQuestion()
+    private string GetRandomQuestion()
     {
         string[] questions = [
             "Why was this experience meaningful to you?",
