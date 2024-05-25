@@ -1,0 +1,45 @@
+Program.cs
+    class Program
+        Main()
+
+ProgressTracker.cs
+    class ProgressTracker
+        private int _score = 0;
+
+        List<Goal> goals
+
+        private void AddScore()
+        private void resetGoal(int index) /resets a goal, so it can be redone
+        public void DisplayScore()
+        public void HandleIO()
+
+Goal.cs
+    abstract class Goal
+        private string _name
+        private string _requirement
+
+        abstract public int GetDailyPoints(bool taskCompleted)
+        
+        abstract private bool IsComplete() /if its complete -> bonus points -> disable goal?
+        public void Display()
+        abstract public void DayFinished()
+        abstract public void DisplayStatistics()
+
+SimpleGoal.cs //run 1km
+    class SimpleGoal : Goal
+
+EternalGoal.cs //read scriptures daily
+    class EternalGoal : Goal
+        private int _pointsPerDay = 1
+
+ChecklistGoal.cs 
+    class ChecklistGoal : Goal
+        private int _dailyPoints = 1
+
+        private int _streak
+            //increments with each completed task
+            //resets to 0 with a failure to complete the task
+        private int _streakBonusMultiplier //bonus = streak * x
+        
+        private int _totalCompletions = 0
+        private int _totalCompletionsBonusMultiplier //bonus = totalCompletions * x
