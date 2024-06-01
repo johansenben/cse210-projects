@@ -1,0 +1,31 @@
+Foundation 1:
+Video.cs
+    class Video
+        private string _title
+        private string _author
+        private string _description //extra
+        private int _seconds
+        private List<Comment> _comments = new List<Comment>()
+
+        public Video(string title, string author, int seconds, string description = "")
+
+        public void AddComment(Comment comment)
+        public string GetTimeString()
+        public int GetCommentCount()
+        public void Display()
+        public string GetDetails()
+
+        public List<Comment> SearchForComment(string containsString) //extra
+
+Comment.cs
+    class Comment
+        private string _commenterName;
+        private string _date; //extra
+        private string _comment;
+
+        public Comment(string commenterName, string comment, string date = null)
+
+        public void Display()
+        public (string name, string comment) GetDetails()
+
+        public bool Contains(string str) //extra

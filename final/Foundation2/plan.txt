@@ -1,0 +1,34 @@
+Foundation 2:
+Product.cs
+    class Product
+        private string _name
+        private string _id
+        private float _cost
+        private int _quantity
+Customer.cs
+    class Customer
+        private string _name
+        private Address _address
+
+        public bool LivesInUSA()
+Address.cs
+    class Address
+        private string _address
+        private string _city
+        private string _country
+        private string _state
+
+        public bool IsInUSA()
+        public string GetAddress()
+Order.cs
+    class Order
+        private List<Product> _products
+        private Customer _customer
+
+
+        public float GetTotalCost()
+        public string GetPackingLabel()
+        public string GetShippingLabel()
+        public float GetShippingCost()
+
+

@@ -1,0 +1,25 @@
+Foundation 3
+Event.cs
+    abstract class Event
+        private string _title
+        private string _description
+        private string _date
+        private string _time
+        private string _address
+        private int _attendants
+
+        abstract public bool IsFull() or IsAtCapacity()
+        abstract public string GetFullDetails()
+        public string GetShortDetails()
+        public string Display()
+
+Lecture.cs
+    class Lecture : Event
+        private Speaker _speaker //could be list/array for more speakers
+        private int _capacity
+Reception.cs
+    class Reception : Event
+        private List<string> _namesRegistered
+OutdoorGathering.cs
+    class OutdoorGathering : Event
+

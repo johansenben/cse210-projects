@@ -1,0 +1,24 @@
+Foundation 4
+ExerciseTracker.cs
+    class ExerciseTracker
+Exercise.cs
+    abstract class Exercise
+        private string _date
+        private int _minutes
+
+        abstract public float GetDistance()
+        abstract public float GetKmPerH()
+        abstract public float GetMPH()
+        abstact public float GetMinutesPerMile()
+        abstract public float GetMinutesPerKm()
+        abstract public string GetSummary()
+
+Running.cs
+    class Running : Exercise
+        private float _distance
+StationaryBicycle.cs
+    class StationaryBicycle : Exercise
+        private float _speed
+Swimming.cs
+    class Swimming : Exercise
+        private int _laps
