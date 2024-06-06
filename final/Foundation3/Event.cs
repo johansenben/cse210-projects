@@ -35,7 +35,7 @@ abstract class Event
 
     public string GetStandardDetails()
     {
-        return $"Title: {_title}, Description: {_description}, Date: {_date}, Time: {_time}, Address: {_address.GetAddress()}";
+        return $"Title: {_title},\nDescription: {_description}, Date: {_date}, Time: {_time}, Address: {_address.GetAddress()}";
     }
     public abstract string GetFullDetails();
     public string GetMarketingMessage()

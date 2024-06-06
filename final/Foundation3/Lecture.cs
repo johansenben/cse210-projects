@@ -17,8 +17,7 @@ class Lecture : Event
     public override string GetFullDetails()
     {
         return GetStandardDetails() + '\n'
-            + $"Type: {GetEventType()}, Speaker Name: {_speakerName}, Capacity: {_capacity}\n"
-            + GetDescription();
+            + $"Type: {GetEventType()}, Speaker Name: {_speakerName}, Capacity: {_capacity}";
     }
 
     public override bool MoreGuestsAllowed()

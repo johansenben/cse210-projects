@@ -14,8 +14,7 @@ class OutdoorGathering : Event
     public override string GetFullDetails()
     {
         return GetStandardDetails() + '\n'
-            + $"Type: {GetEventType()}, Weather Forcast: {_weatherForcast}\n"
-            + GetDescription();
+            + $"Type: {GetEventType()}, Weather Forcast: {_weatherForcast}";
     }
 
     public override bool MoreGuestsAllowed()
